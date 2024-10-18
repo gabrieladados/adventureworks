@@ -49,6 +49,15 @@ sources:
               - unique
               - not_null
 
+      
+      - name: CREDITCARD
+        description: Tabela fonte com informações sobre o tipo de cartão usado na compra.
+        columns:
+          - name: CREDITCARDID
+            data_tests:
+              - unique
+              - not_null
+
 
   
   
