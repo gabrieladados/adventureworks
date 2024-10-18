@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: dimCliente
+    description: >
+      A tabela `dimCliente` serve como uma dimensão de clientes, consolidando informações essenciais dos clientes
+      para facilitar análises e relatórios. 
+    columns:
+      - name: pk_idCliente
+        description: Chave primária que identifica de forma única cada cliente.
+        tests:
+          - unique
+          - not_null
+      - name: nomePessoa
+        description: Nome completo da pessoa associada ao cliente.
+      - name: tipoPessoa
+        description: >
+          Tipo da pessoa que pode ser uma das seguintes categorias:
+          - Contato de Loja (SC)
+          - Cliente Individual (IN)
+          - Vendedor (SP)
+          - Funcionário (EM)
+          - Fornecedor (VC)
+          - Contato Geral (GC)

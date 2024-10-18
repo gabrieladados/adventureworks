@@ -31,5 +31,25 @@ sources:
               - unique
               - not_null
 
+
+      - name: CUSTOMER
+        description: Tabela fonte com informações sobre os clientes da Aventureworks.
+        columns:
+          - name: CUSTOMERID
+            data_tests:
+              - unique
+              - not_null
+
+
+      - name: PERSON
+        description: Tabela fonte com informações sobre as pessoas da Aventureworks.
+        columns:
+          - name: BUSINESSENTITYID
+            data_tests:
+              - unique
+              - not_null
+
+
+  
   
 

@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: intermediate_cliente
+    description: >
+      A tabela `int_cliente` contém informações consolidadas sobre os clientes, integrando dados das tabelas de clientes e pessoas. 
+      Esta tabela é usada principalmente para facilitar consultas analíticas sobre os clientes, permitindo a análise de suas informações pessoais, como nome e tipo de pessoa.
+    columns:
+      - name: pk_idCliente
+        description: Chave primária que identifica de forma única cada cliente.
+        tests:
+          - unique
+          - not_null
+      - name: nomePessoa
+        description: Nome completo da pessoa associada ao cliente.
+      - name: tipoPessoa
+        description: >
+          Tipo da pessoa associado ao cliente, que pode ser uma das seguintes categorias:
+          - Contato de Loja (SC)
+          - Cliente Individual (IN)
+          - Vendedor (SP)
+          - Funcionário (EM)
+          - Fornecedor (VC)
+          - Contato Geral (GC)
