@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: dimTipoCartao
+    description: >
+      A dimensão `dimTipoCartao` contém informações sobre os tipos de cartões de crédito disponíveis na base de dados AdventureWorks. 
+    columns:
+      - name: pk_idTipoCartao
+        description: >
+          Chave primária que identifica de forma única cada tipo de cartão de crédito.
+        tests:
+          - unique
+          - not_null
+      - name: tipoCartao
+        description: >
+          Descrição do tipo de cartão de crédito, que pode incluir categorias como:
+          --ColonialVoice
+          --Distinguish
+          --SuperiorCard
+          --Vista
