@@ -1,0 +1,35 @@
+version: 2
+
+sources:
+  - name: source_adventureworks
+    description: Base de dados de vendas da Adeventureworks.
+    database: FEA24_9
+    schema: RAW_ADVENTURE_WORKS
+    tables:
+      - name: PRODUCT
+        description: Tabela fonte com as principais informações dos produtos da Aventureworks.
+        columns:
+          - name: PRODUCTID
+            data_tests:
+              - unique
+              - not_null
+
+      - name: PRODUCTCATEGORY
+        description: Tabela fonte com informações das categorias dos produtos da Aventureworks.
+        columns:
+          - name: PRODUCTCATEGORYID
+            data_tests:
+              - unique
+              - not_null
+
+
+      - name: PRODUCTSUBCATEGORY
+        description: Tabela fonte com informações das subcategorias dos produtos da Aventureworks.
+        columns:
+          - name: PRODUCTSUBCATEGORYID
+            data_tests:
+              - unique
+              - not_null
+
+  
+
