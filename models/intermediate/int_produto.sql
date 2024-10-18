@@ -11,8 +11,6 @@ WITH
 SELECT 
       pk_idProduto
     , nomeProduto
-    , pk_idCategoriaProduto
     , nomeCategoriaProduto
-    , PK_idSubcategoriaProduto
     , nomeSubcategoriaProduto
 FROM produto
