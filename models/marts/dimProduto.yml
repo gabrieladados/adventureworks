@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: dimProduto
+    description: >
+      A dimensão `dimProduto` contém informações consolidadas sobre os produtos, integrando dados da tabela intermediária `int_produto`. 
+      Esta tabela é usada principalmente para facilitar consultas analíticas sobre produtos, com colunas como o nome do produto, categoria e subcategoria.
+    columns:
+      - name: pk_idProduto
+        description: Chave primária do produto.
+        tests:
+          - unique
+          - not_null
+      - name: nomeProduto
+        description: Nome completo do produto.
+      - name: nomeCategoriaProduto
+        description: Nome da categoria a que o produto pertence.
+      - name: nomeSubcategoriaProduto
+        description: Nome da subcategoria a que o produto pertence.
