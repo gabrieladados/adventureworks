@@ -1,0 +1,41 @@
+# Nome do projeto 
+name: 'adventureworks'
+version: '1.0.0'
+config-version: 2
+
+# O profile que será usado pelo dbt
+profile: 'default'
+
+# Caminhos para diferentes tipos de arquivos no projeto
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+# Diretório onde os arquivos SQL compilados serão armazenados
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+# Configurações de materialização para os modelos
+models:
+  # Namespace principal do projeto
+  adventureworks:
+
+    # Configuração da camada de staging
+    staging:
+      # Todos os modelos na pasta models/staging serão materializados como views
+      +materialized: view
+
+    # Configuração da camada intermediária
+    intermediate:
+      # Todos os modelos na pasta models/intermediate serão materializados como views ou tabelas
+      +materialized: view
+
+    # Configuração da camada de marts (dimensões e tabelas fato)
+    marts:
+      # Todos os modelos na pasta models/marts serão materializados como tabelas
+      +materialized: table

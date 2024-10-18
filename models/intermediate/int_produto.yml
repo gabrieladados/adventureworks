@@ -1,0 +1,38 @@
+version: 2
+
+models:
+  - name: intermediate_produto
+    description: >
+      Este modelo representa a camada intermediária de produto, integrando dados dos modelos de staging: `stg_produto`, `stg_subcategoriaproduto` e `stg_categoriaproduto`. O modelo une essas tabelas para consolidar informações sobre os produtos, suas subcategorias e categorias.
+    columns:
+      - name: pk_idProduto
+        description: Chave primária do produto.
+      - name: nomeProduto
+        description: Nome do produto.
+      - name: nomeCategoriaProduto
+        description: >
+          Nome da categoria a que o produto pertence. Essa informação é obtida pela junção com a tabela de categorias de produtos `stg_categoriaproduto`.
+      - name: nomeSubcategoriaProduto
+        description: >
+          Nome da subcategoria a que o produto pertence. Essa informação é obtida pela junção com a tabela de subcategorias de produtos `stg_subcategoriaproduto`.
+
+models:
+  - name: stg_produto
+    description: Tabela de staging que contém as principais informações dos produtos.
+    columns:
+      - name: fk_idSubcategoriaProduto
+        description: Chave estrangeira para a tabela de subcategorias de produtos.
+
+  - name: stg_subcategoriaproduto
+    description: Tabela de staging que contém informações sobre as subcategorias dos produtos.
+    columns:
+      - name: PK_idSubcategoriaProduto
+        description: Chave primária da subcategoria de produtos.
+      - name: FK_idCategoriaProduto
+        description: Chave estrangeira para a tabela de categorias de produtos.
+
+  - name: stg_categoriaproduto
+    description: Tabela de staging que contém informações sobre as categorias dos produtos.
+    columns:
+      - name: pk_idCategoriaProduto
+        description: Chave primária da categoria de produtos.
