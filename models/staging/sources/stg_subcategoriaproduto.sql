@@ -14,7 +14,7 @@ WITH
         SELECT 
               CAST(PRODUCTSUBCATEGORYID AS INT) AS PK_idSubcategoriaProduto
             , CAST(PRODUCTCATEGORYID AS INT) AS FK_idCategoriaProduto
-            , CAST(NAME AS VARCHAR) AS nomeCategoriaProduto
+            , CAST(NAME AS VARCHAR) AS nomeSubcategoriaProduto
         FROM fonteSubcategoriaProduto
     )
 
