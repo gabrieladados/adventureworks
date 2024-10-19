@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: intermediate_motivoVenda
+    description: >
+      A tabela `int_motivoVenda` contém informações sobre os motivos de venda na base de dados AdventureWorks. 
+    columns:
+      - name: pk_idMotivoVenda
+        description: >
+          Chave primária que identifica de forma única cada motivo de venda.
+        tests:
+          - unique
+          - not_null
+      - name: motivoVenda
+        description: >
+          Nome do motivo de venda, descrevendo a razão principal para a venda, como "Promoção", "Qualidade", entre outros.
+      - name: tipoMotivoVenda
+        description: >
+          Categoria do motivo de venda, que classifica o motivo em tipos como "Marketing" ou "Promotion" (promoção).
