@@ -59,6 +59,14 @@ sources:
               - not_null
 
 
+      - name: SALESREASON
+        description: Tabela fonte com informações sobre o motivo da compra realizada na Adventureworks.
+        columns:
+          - name: SALESREASONID
+            data_tests:
+              - unique
+              - not_null
+
   
   
 
