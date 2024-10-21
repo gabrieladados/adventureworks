@@ -1,0 +1,25 @@
+version: 2
+
+models:
+  - name: dim_status_pedido
+    description: >
+      A tabela `dim_status_pedido` contém informações sobre o status dos pedidos, provenientes da camada intermediária `int_statuspedido`.
+    columns:
+      - name: pk_idPedido
+        description: >
+          Chave primária que identifica de forma única cada pedido de venda, 
+          permitindo relacionar essa dimensão com outras tabelas de fato no modelo de dados.
+        tests:
+          - unique
+          - not_null
+      - name: statusPedido
+        description: >
+          Descrição textual do status atual do pedido, com os seguintes valores possíveis:
+          -- Em andamento
+          -- Aprovado
+          -- Em atraso
+          -- Rejeitado
+          -- Enviado
+          -- Cancelado
+        tests:
+          - not_null
