@@ -67,6 +67,16 @@ sources:
               - unique
               - not_null
 
+    
+      - name: SALESORDERHEADER
+        description: A tabela SalesOrderHeader contém informações gerais sobre os pedidos de vendas realizados na base de dados AdventureWorks, como status.
+        columns:
+          - name: SALESORDERID
+            data_tests:
+              - unique
+              - not_null
+
+
   
   
 
