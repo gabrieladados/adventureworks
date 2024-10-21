@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: int_localidade
+    description: >
+      A tabela `int_localidade` contém informações consolidadas sobre a localização, integrando dados das tabelas de cidades, estados e países.
+
+    columns:
+      - name: pk_idEndereco
+        description: >
+          Chave primária que identifica de forma única cada endereço. Este campo é utilizado para referenciar endereços em outras tabelas.
+        tests:
+          - unique
+          - not_null
+          
+      - name: cidade
+        description: >
+          Nome da cidade associada ao endereço. Este campo é crucial para identificar a localização geográfica em análises.
+
+      - name: Estado
+        description: >
+          Nome do estado ao qual a cidade pertence. Este campo auxilia na categorização e na realização de análises por região.
+
+      - name: Pais
+        description: >
+          Nome do país ao qual o estado pertence. Este campo é importante para a análise geográfica em nível internacional.
