@@ -77,6 +77,41 @@ sources:
               - not_null
 
 
+      - name: ADDRESS
+        description: >
+          A tabela `ADDRESS` contém informações sobre os endereços relacionados aos pedidos de vendas realizados na base de dados AdventureWorks. 
+        columns:
+          - name: ADDRESSID
+            description: >
+              Identificador único do endereço. Este campo é a chave primária da tabela de endereços e é utilizado para referenciar os endereços em outras tabelas.
+            tests:
+              - unique
+              - not_null
+
+      - name: STATEPROVINCE
+        description: >
+          A tabela `STATEPROVINCE` contém informações sobre os estados e províncias registrados na base de dados AdventureWorks. 
+
+        columns:
+          - name: STATEPROVINCEID
+            description: >
+              Identificador único do estado ou província. Este campo é a chave primária da tabela de estados e províncias e é utilizado para referenciar essas entidades em outras tabelas.
+            tests:
+              - unique
+              - not_null
+
+      - name: COUNTRYREGION
+        description: >
+          A tabela `COUNTRYREGION` contém informações sobre os países e regiões associados na base de dados AdventureWorks. 
+        columns:
+          - name: COUNTRYREGIONCODE
+            description: >
+              Código único que identifica cada país ou região. Este campo é a chave primária da tabela de países e regiões e é utilizado para referenciar essas entidades em outras tabelas.
+            tests:
+              - unique
+              - not_null
+
+
   
   
 
