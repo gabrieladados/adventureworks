@@ -1,0 +1,40 @@
+version: 2
+
+models:
+  - name: intermediate_fontePedidos
+    description: >
+      A tabela `intermediate_fontePedidos` contém informações consolidadas sobre os pedidos realizados, incluindo detalhes sobre produtos, clientes, status do pedido, motivos de venda e informações financeiras. Essa tabela serve como uma camada intermediária para análises posteriores, facilitando a consulta e o relatórios sobre vendas.
+    columns:
+      - name: pk_idPedido
+        description: >
+          Chave primária que identifica de forma única cada pedido na tabela de vendas.
+      - name: pk_idProduto
+        description: >
+          Chave primária que identifica de forma única cada produto associado ao pedido.
+      - name: pk_idCliente
+        description: >
+          Chave primária que identifica de forma única cada cliente que realizou o pedido.
+      - name: pk_idTipoCartao
+        description: >
+          Chave primária que identifica de forma única cada tipo de cartão utilizado na transação.
+      - name: fk_idMotivoVenda
+        description: >
+          Chave estrangeira que associa o pedido a um motivo de venda específico, indicando a razão pela qual a venda foi realizada.
+      - name: statusPedido
+        description: >
+          Status atual do pedido (por exemplo, 'Em andamento', 'Concluído', 'Cancelado'), refletindo a situação do pedido na base de dados.
+      - name: pk_idEndereco
+        description: >
+          Chave primária que identifica de forma única cada endereço de entrega associado ao pedido.
+      - name: dataCompra
+        description: >
+          Data em que a compra foi realizada, fornecendo um contexto temporal para as análises de vendas.
+      - name: quantidadePedido
+        description: >
+          Quantidade de produtos solicitados no pedido, refletindo a demanda e o volume de vendas.
+      - name: valorTotalNegociado
+        description: >
+          Valor total negociado para o pedido, calculado como a soma do preço unitário multiplicado pela quantidade pedida.
+      - name: valorTotalNegociadoLiquido
+        description: >
+          Valor total negociado líquido após considerar descontos, calculado como o valor total menos os descontos aplicados, refletindo o valor real recebido pela empresa.
