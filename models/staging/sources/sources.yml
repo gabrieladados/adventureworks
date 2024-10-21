@@ -112,6 +112,24 @@ sources:
               - not_null
 
 
+      - name: SALESORDERDETAIL
+        description: >
+          A tabela `SALESORDERDETAIL` contém informações datalhadas sobre as vendas da AdventureWorks. 
+        columns:
+          - name: SALESORDERID
+            description: >
+              Código único que identifica cada pedido realizado.
+
+
+
+      - name: SALESORDERHEADERSALESREASON
+        description: >
+          A tabela `SALESORDERHEADERSALESREASON` contém informações datalhadas sobre o motivo das vendas da AdventureWorks. 
+        columns:
+          - name: SALESORDERID
+            description: >
+              Código único que identifica cada pedido realizado.
+
          
 
 

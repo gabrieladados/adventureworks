@@ -2,6 +2,10 @@ WITH
     fonteStatusPedido AS (
         SELECT 
               SALESORDERID
+            , ORDERDATE
+            , CUSTOMERID
+            , SHIPTOADDRESSID
+            , CREDITCARDID
             , CASE 
                 WHEN STATUS = 1 THEN 'Em andamento'
                 WHEN STATUS = 2 THEN 'Aprovado'
@@ -11,19 +15,15 @@ WITH
                 WHEN STATUS = 6 THEN 'Cancelado'
               END AS STATUSPEDIDO
             --, REVISIONNUMBER
-            --, ORDERDATE
             --, DUEDATE
             --, SHIPDATE
             --, ONLINEORDERFLAG
             --, PURCHASEORDERNUMBER
             --, ACCOUNTNUMBER
-            --, CUSTOMERID
             --, SALESPERSONID
             --, TERRITORYID
             --, BILLTOADDRESSID
-            --, SHIPTOADDRESSID
             --, SHIPMETHODID
-            --, CREDITCARDID
             --, CREDITCARDAPPROVALCODE
             --, CURRENCYRATEID
             --, SUBTOTAL
@@ -40,6 +40,10 @@ WITH
         SELECT 
               CAST(SALESORDERID AS INT) AS pk_idPedido
             , CAST(STATUSPEDIDO AS VARCHAR) AS statusPedido
+            , CAST(CUSTOMERID AS INT) AS fk_idCliente
+            , CAST(SHIPTOADDRESSID AS INT) AS fk_idEndereco
+            , CAST(CREDITCARDID AS INT) AS fk_idTipoCartao
+            , CAST(ORDERDATE AS DATE) AS dataCompra
         FROM fonteStatusPedido
     )
 

@@ -3,17 +3,26 @@ version: 2
 models:
   - name: dimMotivoVenda
     description: >
-      A tabela `dimMotivoVenda` é uma dimensão que contém informações consolidadas sobre os motivos de venda. 
+      A tabela `dimMotivoVenda` é uma dimensão que contém informações consolidadas sobre os motivos de venda da base de dados AdventureWorks. 
+      Ela organiza e categoriza os motivos de venda, servindo como uma tabela de referência para relatórios e análises de vendas.
     columns:
-      - name: pk_idMotivoVenda
-        description: >
-          Chave primária que identifica de forma única cada motivo de venda.
+      - name: fk_idPedido
         tests:
-          - unique
           - not_null
+        description: >
+          Chave estrangeira que identifica o pedido associado ao motivo de venda. 
+          Um mesmo pedido pode ter mais de um motivo. 
+
+      - name: fk_idMotivoVenda
+        description: >
+          Chave estrangeira que identifica o motivo de venda. 
+        tests:
+          - not_null
+
       - name: motivoVenda
         description: >
-          Nome do motivo de venda, descrevendo a razão principal pela qual a venda foi realizada, como promoções, qualidade, entre outros.
+          Nome do motivo de venda, descrevendo a razão principal pela qual um pedido foi feito, como "Promoção", "Qualidade", entre outros.
+
       - name: tipoMotivoVenda
         description: >
-          Categoria ou tipo do motivo de venda, que classifica o motivo como "Marketing", "Promotion", ou outras classificações relevantes no contexto das vendas.
+          Categoria do motivo de venda, que classifica o motivo em tipos como "Marketing" ou "Promotion" (promoção).
