@@ -1,6 +1,8 @@
 WITH 
     statusPedido AS (
-        SELECT *
+        SELECT 
+              pk_idPedido
+            , statusPedido
         FROM {{ ref('stg_statuspedido') }}
     )
 
