@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: dimLocalidade
+    description: >
+      A tabela `dimLocalidade` contém informações detalhadas sobre as localidades, incluindo cidades, estados e países. 
+
+    columns:
+      - name: pk_idEndereco
+        description: >
+          Chave primária que identifica de forma única cada endereço na tabela de localidades. Este campo é utilizado para associar endereços em outras análises.
+        tests:
+          - unique
+          - not_null
+          
+      - name: cidade
+        description: >
+          Nome da cidade associada ao endereço. É um campo essencial para a identificação geográfica nas análises.
+
+      - name: Estado
+        description: >
+          Nome do estado ao qual a cidade pertence. Este campo facilita a categorização e permite análises em nível estadual.
+
+      - name: Pais
+        description: >
+          Nome do país onde a cidade e o estado estão localizados. Fundamental para análises em nível internacional e para a segmentação geográfica de dados.
