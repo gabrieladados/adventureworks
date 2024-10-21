@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: int_status_pedido
+    description: >
+      A tabela `int_status_pedido` contém informações padronizadas sobre o status dos pedidos na base de dados AdventureWorks. 
+    columns:
+      - name: pk_idPedido
+        description: >
+          Chave primária que identifica de forma única cada pedido de venda.
+        tests:
+          - unique
+          - not_null
+      - name: statusPedido
+        description: >
+          Descrição textual do status atual do pedido, que pode ter os seguintes valores:
+          -- Em andamento
+          -- Aprovado
+          -- Em atraso
+          -- Rejeitado
+          -- Enviado
+          -- Cancelado
+        tests:
+          - not_null
