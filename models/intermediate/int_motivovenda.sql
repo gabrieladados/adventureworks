@@ -1,7 +1,8 @@
 WITH 
     motivoVenda AS (
         SELECT 
-              motivoligacao.PK_IDPEDIDO
+              UUID_STRING() AS unique_id
+            , motivoligacao.pk_idPedido AS id_pedido
             , motivovenda.motivovenda
             , motivovenda.tipoMotivoVenda
         FROM {{ ref('stg_motivovenda') }}  AS motivovenda
