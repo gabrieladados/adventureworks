@@ -3,38 +3,57 @@ version: 2
 models:
   - name: dimFatoPedido
     description: >
-      A tabela `dimFatoPedido` é uma dimensão consolidada que contém informações detalhadas sobre os pedidos realizados. 
+      A tabela `dimFatoPedido` contém os fatos relacionados a transações de vendas, consolidando dados de pedidos detalhados. Ela provê a base para análises de métricas de vendas como quantidade comprada, valor total negociado e descontos, ligando esses fatos a diversas dimensões, como cliente, produto, tipo de pagamento, status e localidade.
+
     columns:
+      - name: unique_id
+        description: >
+          Chave primária única gerada para cada registro de transação de vendas, permitindo identificar unicamente cada linha da tabela. Esse campo foi gerado com a função `UUID_STRING()` na etapa intermediária.
+        tests:
+          - unique
+          - not_null
+
       - name: pk_idPedido
         description: >
-          Chave primária que identifica de forma única cada pedido na tabela de vendas.
-      - name: pk_idProduto
+          Chave estrangeira que identifica o pedido ao qual o registro de venda pertence, conectando-se à tabela de cabeçalho de pedidos.
+
+      - name: pk_idPedidoDetalhe
         description: >
-          Chave primária que identifica de forma única cada produto associado ao pedido.
-      - name: pk_idCliente
-        description: >
-          Chave primária que identifica de forma única cada cliente que realizou o pedido.
-      - name: pk_idTipoCartao
-        description: >
-          Chave primária que identifica de forma única cada tipo de cartão utilizado na transação.
-      - name: fk_idMotivoVenda
-        description: >
-          Chave estrangeira que associa o pedido a um motivo de venda específico, indicando a razão pela qual a venda foi realizada.
-      - name: statusPedido
-        description: >
-          Status atual do pedido (por exemplo, 'Em andamento', 'Concluído', 'Cancelado'), refletindo a situação do pedido na base de dados.
-      - name: pk_idEndereco
-        description: >
-          Chave primária que identifica de forma única cada endereço de entrega associado ao pedido.
+          Identificador único do detalhe do pedido, permitindo diferenciar múltiplos produtos dentro de um único pedido.
+
       - name: dataCompra
         description: >
-          Data em que a compra foi realizada, fornecendo um contexto temporal para as análises de vendas.
+          Data em que o pedido foi realizado. Este campo permite analisar vendas ao longo do tempo, facilitando a criação de gráficos de séries temporais.
+
+      - name: pk_idProduto
+        description: >
+          Chave estrangeira que relaciona o produto comprado ao registro de venda. Este campo é importante para análises de vendas por produto.
+
+      - name: pk_idCliente
+        description: >
+          Chave estrangeira que identifica o cliente que realizou a compra, facilitando a análise de comportamento de clientes e suas compras.
+
+      - name: pk_idTipoCartao
+        description: >
+          Chave estrangeira que identifica o tipo de cartão usado no pagamento do pedido, essencial para análises sobre métodos de pagamento mais utilizados.
+
+      - name: statusPedido
+        description: >
+          Status atual do pedido, que indica se o pedido foi concluído, cancelado ou está pendente. Esse campo é crucial para o acompanhamento do ciclo de vida dos pedidos.
+
+      - name: pk_idEndereco
+        description: >
+          Chave estrangeira que referencia o endereço de cobrança do cliente, permitindo realizar análises geográficas sobre as vendas.
+
       - name: quantidadePedido
         description: >
-          Quantidade de produtos solicitados no pedido, refletindo a demanda e o volume de vendas.
-      - name: valorTotalNegociado
+          Quantidade de unidades compradas no pedido, representada com precisão decimal (10,4). Esse valor é usado para cálculos de métricas de vendas.
+
+      - name: precoUnitario
         description: >
-          Valor total negociado para o pedido, calculado como a soma do preço unitário multiplicado pela quantidade pedida.
-      - name: valorTotalNegociadoLiquido
+          Preço unitário do produto vendido. Este campo, junto à quantidade, permite calcular o valor total de vendas para cada produto.
+
+      - name: descontoUnitario
         description: >
-          Valor total negociado líquido após considerar descontos, calculado como o valor total menos os descontos aplicados, refletindo o valor real recebido pela empresa.
+          Valor do desconto aplicado por unidade de produto. Usado para análises de descontos concedidos e como eles impactam o ticket médio.
+

@@ -1,5 +1,5 @@
 WITH
-    fonteStatusPedido AS (
+    fonteSalesOrderHeader AS (
         SELECT 
               SALESORDERID
             , ORDERDATE
@@ -20,9 +20,9 @@ WITH
             --, ONLINEORDERFLAG
             --, PURCHASEORDERNUMBER
             --, ACCOUNTNUMBER
-            --, SALESPERSONID
-            --, TERRITORYID
-            --, BILLTOADDRESSID
+            , SALESPERSONID
+            , TERRITORYID
+            , BILLTOADDRESSID
             --, SHIPMETHODID
             --, CREDITCARDAPPROVALCODE
             --, CURRENCYRATEID
@@ -36,7 +36,7 @@ WITH
         FROM {{ source('source_adventureworks', 'SALESORDERHEADER') }}
     )
 
-    , renomearStatusPedido AS (
+    , renomearSalesOrderHeader AS (
         SELECT 
               CAST(SALESORDERID AS INT) AS pk_idPedido
             , CAST(STATUSPEDIDO AS VARCHAR) AS statusPedido
@@ -44,8 +44,11 @@ WITH
             , CAST(SHIPTOADDRESSID AS INT) AS fk_idEndereco
             , CAST(CREDITCARDID AS INT) AS fk_idTipoCartao
             , CAST(ORDERDATE AS DATE) AS dataCompra
-        FROM fonteStatusPedido
+            , SALESPERSONID
+            , TERRITORYID
+            , BILLTOADDRESSID
+        FROM fonteSalesOrderHeader
     )
 
 SELECT * 
-FROM renomearStatusPedido  
+FROM renomearSalesOrderHeader  

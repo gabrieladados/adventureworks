@@ -1,40 +1,58 @@
 version: 2
 
 models:
-  - name: intermediate_fontePedidos
+  - name: int_fatoPedido
     description: >
-      A tabela `intermediate_fontePedidos` contém informações consolidadas sobre os pedidos realizados, incluindo detalhes sobre produtos, clientes, status do pedido, motivos de venda e informações financeiras. Essa tabela serve como uma camada intermediária para análises posteriores, facilitando a consulta e o relatórios sobre vendas.
+      A tabela `int_fatoPedido` contém informações detalhadas sobre os pedidos realizados pelos clientes. Esta tabela de fato integra dados de múltiplas tabelas dimensionais, incluindo produtos, clientes, e informações de pagamento, facilitando análises sobre vendas e desempenho de produtos.
+
     columns:
+      - name: unique_id
+        description: >
+          Chave primária gerada automaticamente para identificar de forma única cada registro na tabela de fato. Utiliza a função `UUID_STRING()` para garantir unicidade.
+        tests:
+          - unique
+          - not_null
+
       - name: pk_idPedido
         description: >
-          Chave primária que identifica de forma única cada pedido na tabela de vendas.
-      - name: pk_idProduto
+          Identificador único do pedido, proveniente da tabela de cabeçalho de vendas (`stg_salesorderheader`). Esse campo permite relacionar os dados de vendas ao pedido original.
+
+      - name: pk_idPedidoDetalhe
         description: >
-          Chave primária que identifica de forma única cada produto associado ao pedido.
-      - name: pk_idCliente
-        description: >
-          Chave primária que identifica de forma única cada cliente que realizou o pedido.
-      - name: pk_idTipoCartao
-        description: >
-          Chave primária que identifica de forma única cada tipo de cartão utilizado na transação.
-      - name: fk_idMotivoVenda
-        description: >
-          Chave estrangeira que associa o pedido a um motivo de venda específico, indicando a razão pela qual a venda foi realizada.
-      - name: statusPedido
-        description: >
-          Status atual do pedido (por exemplo, 'Em andamento', 'Concluído', 'Cancelado'), refletindo a situação do pedido na base de dados.
-      - name: pk_idEndereco
-        description: >
-          Chave primária que identifica de forma única cada endereço de entrega associado ao pedido.
+          Identificador único do detalhe do pedido, originado da tabela de detalhes de vendas (`stg_salesorderdetail`). Cada pedido pode ter múltiplos detalhes, representando diferentes produtos comprados.
+
       - name: dataCompra
         description: >
-          Data em que a compra foi realizada, fornecendo um contexto temporal para as análises de vendas.
+          Data em que o pedido foi realizado. Utilizado para análises temporais, como comportamento de compras ao longo do tempo.
+
+      - name: pk_idProduto
+        description: >
+          Identificador único do produto comprado, proveniente da tabela de produtos (`stg_produto`). Permite associar cada pedido ao produto vendido, facilitando a análise de desempenho de vendas por produto.
+
+      - name: pk_idCliente
+        description: >
+          Identificador único do cliente que realizou a compra, originado da tabela de clientes (`stg_cliente`). Usado para identificar o comportamento e as compras de cada cliente.
+
+      - name: pk_idTipoCartao
+        description: >
+          Identificador do tipo de cartão utilizado no pagamento, proveniente da tabela de tipos de cartão (`stg_tipocartao`). Auxilia em análises de métodos de pagamento.
+
+      - name: statusPedido
+        description: >
+          Status atual do pedido (por exemplo, 'enviado', 'cancelado', 'pendente'), obtido da tabela de cabeçalho de vendas (`stg_salesorderheader`). Importante para monitorar o ciclo de vida do pedido.
+
+      - name: pk_idEndereco
+        description: >
+          Identificador único do endereço de cobrança, proveniente da tabela de cidades (`stg_cidade`). Facilita análises geográficas, como vendas por região ou cidade.
+
       - name: quantidadePedido
         description: >
-          Quantidade de produtos solicitados no pedido, refletindo a demanda e o volume de vendas.
-      - name: valorTotalNegociado
+          Quantidade de unidades do produto comprado em um pedido específico. Este campo é convertido para o formato decimal (10,4) para garantir precisão nas análises de vendas.
+
+      - name: precoUnitario
         description: >
-          Valor total negociado para o pedido, calculado como a soma do preço unitário multiplicado pela quantidade pedida.
-      - name: valorTotalNegociadoLiquido
+          Preço unitário do produto vendido. Este valor, em conjunto com a quantidade, permite o cálculo do valor total das vendas.
+
+      - name: descontoUnitario
         description: >
-          Valor total negociado líquido após considerar descontos, calculado como o valor total menos os descontos aplicados, refletindo o valor real recebido pela empresa.
+          Valor do desconto aplicado por unidade de produto. Esse campo é útil para análises de descontos concedidos e sua relação com o volume de vendas.

@@ -13,7 +13,7 @@ WITH
 
     , renomearTipoCartao AS (
         SELECT 
-              CAST(CREDITCARDID AS INT) AS pk_idTipoCartao
+              CAST(CREDITCARDID AS INT) AS PK_idTipoCartao
             , CAST(CARDTYPE AS VARCHAR) AS tipoCartao
         FROM fonteTipoCartao
     )
