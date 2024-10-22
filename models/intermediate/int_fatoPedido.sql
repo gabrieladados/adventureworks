@@ -2,14 +2,14 @@ WITH
     fontePedidos AS (
         SELECT 
               UUID_STRING() AS unique_id
-            , vendaHeader.pk_idPedido
-            , vendaDetalhes.pk_idPedidoDetalhe
-            , vendaHeader.dataCompra
-            , produto.pk_idProduto
-            , cliente.pk_idCliente
-            , tipoCartao.pk_idTipoCartao
-            , vendaHeader.statusPedido
-            , endereco.pk_idEndereco
+            , vendaHeader.pk_idPedido AS id_pedido
+            , vendaDetalhes.pk_idPedidoDetalhe AS id_pedidodetalhe
+            , produto.pk_idProduto AS id_produto
+            , cliente.pk_idCliente AS id_cliente
+            , tipoCartao.pk_idTipoCartao AS id_tipocartao
+            , endereco.pk_idEndereco AS id_endereco
+            , vendaHeader.dataCompra AS dataCompra
+            , vendaHeader.statusPedido 
             , CAST(vendaDetalhes.quantidadePedido AS DECIMAL(10,4)) AS quantidadePedido
             , CAST(vendaDetalhes.precoUnitario AS DECIMAL(10,4)) AS precoUnitario
             , vendaDetalhes.descontoUnitario

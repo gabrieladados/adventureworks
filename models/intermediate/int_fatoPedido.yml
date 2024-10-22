@@ -13,11 +13,11 @@ models:
           - unique
           - not_null
 
-      - name: pk_idPedido
+      - name: id_Pedido
         description: >
           Identificador único do pedido, proveniente da tabela de cabeçalho de vendas (`stg_salesorderheader`). Esse campo permite relacionar os dados de vendas ao pedido original.
 
-      - name: pk_idPedidoDetalhe
+      - name: id_PedidoDetalhe
         description: >
           Identificador único do detalhe do pedido, originado da tabela de detalhes de vendas (`stg_salesorderdetail`). Cada pedido pode ter múltiplos detalhes, representando diferentes produtos comprados.
 
@@ -25,15 +25,15 @@ models:
         description: >
           Data em que o pedido foi realizado. Utilizado para análises temporais, como comportamento de compras ao longo do tempo.
 
-      - name: pk_idProduto
+      - name: id_Produto
         description: >
           Identificador único do produto comprado, proveniente da tabela de produtos (`stg_produto`). Permite associar cada pedido ao produto vendido, facilitando a análise de desempenho de vendas por produto.
 
-      - name: pk_idCliente
+      - name: id_Cliente
         description: >
           Identificador único do cliente que realizou a compra, originado da tabela de clientes (`stg_cliente`). Usado para identificar o comportamento e as compras de cada cliente.
 
-      - name: pk_idTipoCartao
+      - name: id_TipoCartao
         description: >
           Identificador do tipo de cartão utilizado no pagamento, proveniente da tabela de tipos de cartão (`stg_tipocartao`). Auxilia em análises de métodos de pagamento.
 
@@ -41,7 +41,7 @@ models:
         description: >
           Status atual do pedido (por exemplo, 'enviado', 'cancelado', 'pendente'), obtido da tabela de cabeçalho de vendas (`stg_salesorderheader`). Importante para monitorar o ciclo de vida do pedido.
 
-      - name: pk_idEndereco
+      - name: id_Endereco
         description: >
           Identificador único do endereço de cobrança, proveniente da tabela de cidades (`stg_cidade`). Facilita análises geográficas, como vendas por região ou cidade.
 
