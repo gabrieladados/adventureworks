@@ -3,7 +3,7 @@ WITH
         SELECT 
               pk_idPedido
             , statusPedido
-        FROM {{ ref('stg_statuspedido') }}
+        FROM {{ ref('stg_salesorderheader') }}
     )
 
 SELECT * 
