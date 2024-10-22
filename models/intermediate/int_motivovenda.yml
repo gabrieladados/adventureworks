@@ -4,21 +4,15 @@ models:
   - name: intermediate_motivoVenda
     description: >
       A tabela `intermediate_motivoVenda` contém informações intermediárias sobre os motivos de venda na base de dados AdventureWorks. 
-      Esta tabela une as razões de venda (`fonteMotivoVenda`) com os pedidos (`fonteMotivoVendaLigacao`) para fornecer detalhes sobre 
+      Esta tabela une as razões de venda (`MotivoVenda`) com os pedidos (`MotivoVendaLigacao`) para fornecer detalhes sobre 
       os motivos associados a cada pedido. A tabela renomeia as colunas para facilitar o uso posterior.
     columns:
-      - name: fk_idPedido
+      - name: pk_idPedido
         tests:
           - not_null
         description: >
           Chave estrangeira que identifica o pedido associado ao motivo de venda. 
           Um mesmo pedido pode ter mais de um motivo. 
-
-      - name: fk_idMotivoVenda
-        description: >
-          Chave estrangeira que identifica o motivo de venda. 
-        tests:
-          - not_null
 
       - name: motivoVenda
         description: >
