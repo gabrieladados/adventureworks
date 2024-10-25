@@ -9,7 +9,6 @@ WITH
             , tipoCartao.pk_idTipoCartao AS id_tipocartao
             , endereco.pk_idEndereco AS id_endereco
             , vendaHeader.dataCompra AS dataCompra
-            , vendaHeader.statusPedido 
             , CAST(vendaDetalhes.quantidadePedido AS DECIMAL(10,4)) AS quantidadePedido
             , CAST(vendaDetalhes.precoUnitario AS DECIMAL(10,4)) AS precoUnitario
             , vendaDetalhes.descontoUnitario
