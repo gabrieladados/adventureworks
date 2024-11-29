@@ -1,4 +1,4 @@
-# Do Data Warehouse ao Dashboard: Projeto End-to-End de Análise para Adventure Works
+# Do Data Warehouse ao Power BI: Projeto End-to-End de Análise para Adventure Works
 _Este projeto constitui a etapa final para a certificação em Analytics Engineer pela Indicium Academy._
 
 
