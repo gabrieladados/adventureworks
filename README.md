@@ -104,3 +104,23 @@ Este projeto demonstrou como uma abordagem end-to-end pode transformar a infraes
 A modelagem dimensional em Star Schema permitiu análises rápidas e eficazes, atendendo às necessidades dos stakeholders e alinhando-se aos objetivos da empresa. O dashboard desenvolvido no Power BI facilitou a visualização dos dados, permitindo que a equipe explorasse as informações de vendas de maneira intuitiva.
 
 Com este projeto, a Adventure Works está mais preparada para responder a perguntas estratégicas e fortalecer suas operações de vendas, estabelecendo uma base sólida para futuras iniciativas em análise de dados e promovendo uma cultura orientada por dados.
+
+
+---
+
+
+## Constribuições
+
+Muito obrigada por acompanhar meu projeto até aqui! 🎉
+
+Contribuições são **muito bem-vindas**. Se você tem sugestões ou melhorias, fique à vontade para abrir uma **issue** ou enviar um **pull request**.
+
+Gostou do projeto? Não esqueça de dar uma ⭐️! 
+
+
+**Meus Contatos:**
+
+💻 [LinkedIn](https://www.linkedin.com/in/gabrielasantanamorais/)  
+📩 [E-mail](mailto:gabrielasmorais01@gmail.com)
+
+**Até a próxima!** 🚀
