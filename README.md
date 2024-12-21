@@ -14,7 +14,9 @@ A infraestrutura de dados será construída com um foco inicial em vendas, mas u
 
 O projeto de dados da Adventure Works é patrocinado por João Muller, diretor de inovação, com apoio do CEO Carlos Silveira, que vê no uso estratégico de dados uma vantagem competitiva, exigindo alta qualidade e confiabilidade dos dados. A diretora comercial, Silvana Teixeira, está cética quanto ao valor do projeto para o setor de vendas, preferindo investimentos com retorno imediato, enquanto o diretor de TI, Nilson Ramos, é responsável por garantir o acesso aos dados, delegando a tarefa a Gabriel Santos, analista de banco de dados com agenda limitada. Esse conjunto de interesses demanda uma execução cuidadosa para alinhar expectativas e atender aos objetivos técnicos e de negócios.
 
-![stakeholders](https://github.com/user-attachments/assets/1b893a85-3ddf-43a8-8b29-9ef9b2dc9b53)
+<p align="center">
+  <img alt="stakeholders" src="https://github.com/user-attachments/assets/1b893a85-3ddf-43a8-8b29-9ef9b2dc9b53" width="70%">
+</p>
 
 
 
@@ -42,7 +44,9 @@ O projeto visa criar uma infraestrutura moderna de dados que:
 
 A Adventure Works é uma base de dados fictícia da Microsoft amplamente utilizada em treinamentos e projetos de demonstração para simular cenários reais de análise de dados. Esta base possui 68 tabelas e você pode acessar mais informações nesse Link: <https://learn.microsoft.com/pt-br/sql/samples/adventureworks-install-configure?view=sql-server-ver16&tabs=ssms>
 
-![image](https://github.com/user-attachments/assets/47990f5d-7d94-49a4-b694-31cd668622ee)
+<p align="center">
+  <img alt="image" src="https://github.com/user-attachments/assets/47990f5d-7d94-49a4-b694-31cd668622ee" width="90%">
+</p>
 
 
 ## 6. Arquitetura e Ferramentas
@@ -58,14 +62,19 @@ O projeto consiste na criação de um Data Warehouse com uma estrutura **Star Sc
 - **ETL/ELT**: dbt Cloud (Transformação de Dados)
 - **Visualização**: Power BI
   
-![arquitetura de dados 2](https://github.com/user-attachments/assets/be36d21e-6980-4d1f-81ec-d0df90241486)
+<p align="center">
+  <img alt="arquitetura de dados 2" src="https://github.com/user-attachments/assets/be36d21e-6980-4d1f-81ec-d0df90241486" width="70%">
+</p>
 
 
 
 ## 7. Modelagem Dimensional
 A modelagem dimensional do projeto foi desenhada para atender às principais necessidades analíticas do departamento de vendas da Adventure Works. Estruturada no formato estrela (star schema), essa modelagem permite realizar análises rápidas e flexíveis por meio da separação entre tabelas de fatos e dimensões:
 
-![diagrama](https://github.com/user-attachments/assets/4d2815d8-1764-4ba1-857a-f199a0ac0f0c)
+<p align="center">
+  <img alt="diagrama" src="https://github.com/user-attachments/assets/4d2815d8-1764-4ba1-857a-f199a0ac0f0c" width="70%">
+</p>
+
 
 Na pasta **models**, a modelagem dimensional está organizada em três etapas principais: staging, intermediate, e marts. Cada etapa corresponde a uma fase específica no processo de transformação dos dados, permitindo uma transição estruturada e eficiente desde a ingestão dos dados brutos até a criação de tabelas dimensionais e de fatos para análise final.
 
@@ -88,13 +97,9 @@ Durante o desenvolvimento da modelagem dimensional, realizei testes para verific
 
 O mockup do Dashboard foi desenvolvido no Figma e o desenvolvimento realizado no Power BI. 
 
-### Página 1: Visão Geral
-
-![image](https://github.com/user-attachments/assets/ba970b37-fe26-4bdc-9d08-45dca0181f93)
-
-
-### Página 2: Produto
-![image](https://github.com/user-attachments/assets/2722096c-bbd8-4c81-903e-422563934235)
+<p align="center">
+  <img alt="Dashboard Adventure Works" src="https://github.com/user-attachments/assets/fe18c37d-307f-4769-8029-ca7bc89b2c8b" width="80%">
+</p>
 
 
 ## 10. Conclusão
