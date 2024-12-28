@@ -114,7 +114,7 @@ Com este projeto, a Adventure Works está mais preparada para responder a pergun
 ---
 
 
-## Constribuições
+## Contribuições
 
 Muito obrigada por acompanhar meu projeto até aqui! 🎉
 
